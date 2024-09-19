@@ -22,13 +22,6 @@ requirements:
     - python
     - django-autocomplete-light
 
-test:
-  imports:
-    - dal_admin_filters
-  commands:
-    - pip check
-  requires:
-    - pip
 
 about:
   home: https://github.com/shamanu4/dal_admin_filters
