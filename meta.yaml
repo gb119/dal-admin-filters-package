@@ -1,0 +1,41 @@
+{% set name = "dal-admin-filters" %}
+{% set version = "1.1.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dal_admin_filters-{{ version }}.tar.gz
+  sha256: 0b60f85a1c21c08dc41de68615c65fb220e8c6968e6e488248155f34e41e200c
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - django-autocomplete-light
+
+test:
+  imports:
+    - dal_admin_filters
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/shamanu4/dal_admin_filters
+  summary: Django autocomplete light filters for django admin
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - https://github.com/gb119
